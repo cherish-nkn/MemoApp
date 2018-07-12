@@ -1,7 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 class CircleButton extends React.Component {
+
   render() {
     const { style, color } = this.props;
     let bgColor = '#E31676';
@@ -12,9 +15,7 @@ class CircleButton extends React.Component {
     }
     return (
       <View style={[styles.circleButton, style, { backgroundColor: bgColor }]}>
-        <Text style={[styles.circleBottenTitle, { color: textColor }]}>
-          { this.props.children }
-        </Text>
+        <Icon name="pencil" />
       </View>
     );
   }
