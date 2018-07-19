@@ -2,13 +2,43 @@ import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
 
 class LoginScreen extends React.Component {
+
+  constructor() {
+    super();
+    this.handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  state = {
+    email: '',
+    password: '',
+  }
+
+  _handleSubmit() {
+    // this.props.navigation.navigate('Home');
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>ログイン</Text>
-        <TextInput style={styles.input} value="Email Address" />
-        <TextInput style={styles.input} value="Password" />
-        <TouchableHighlight style={styles.button} title="送信" onPress={() => {}}>
+        <TextInput
+          style={styles.input}
+          value={this.state.email}
+          onChangeText={(t) => { this.setState({ email: t }); }}
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder="Email Address"
+        />
+        <TextInput
+          style={styles.input}
+          value={this.state.password}
+          onChangeText={(t) => { this.setState({ password: t }); }}
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder="Password"
+          secureTextEntry
+        />
+        <TouchableHighlight style={styles.button} title="送信" onPress={this.handleSubmit}>
           <Text style={styles.buttonTitle}>ログインする</Text>
         </TouchableHighlight>
       </View>
